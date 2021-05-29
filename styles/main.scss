@@ -1,0 +1,262 @@
+@import './fonts-family.scss';
+
+@mixin flex-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-column{
+  display: flex;
+  flex-direction: column;
+}
+
+.main{
+  width: 60vw;
+  margin-top: 7vw;
+  @include flex-column();
+
+  .title-main{
+    width: 100%;
+    font-size:5vw;
+    text-align: left;
+    .title-main__bold{
+      font-family: 'UniNeueBold';
+
+    }
+    .title-main__subtitle{
+      font-family: 'UniNeueBook';
+    }
+  }
+
+  .company-advantages{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 10vw;
+
+    .first,.second,.third{
+      width: 30%;
+      height: 100%;
+      display: flex;
+      // align-items: flex-start;
+      justify-content: center;
+      .years{
+        display: none;
+      }
+      .years-work{
+
+        transform: translate(0, -5px);
+        padding: 0px;
+        display: flex;
+        align-items: flex-start;
+        font-family: 'UniNeueHeavy';
+        font-size: 10vw;
+      }
+      .line-45-deg{
+        transform: translate(0, -2%);
+        transform: scale(1.2);
+        height: 100%;
+      }
+      .text{
+        width: 65%;
+        margin-left: 3%;
+        height: 100%;
+        display: inline-block;
+        font-size: 1.9vw;
+        .text__bold{
+          font-family: 'UniNeueBold';
+        }
+        .text__subtitle{
+          font-family: 'UniNeueBook';
+        }
+      }
+    }
+    .first{
+      width: 40%;
+    }
+  }
+
+  .cost-cert {
+    width: 100%;
+    margin-top: 1.3vw;
+    display: flex;
+    flex-wrap: nowrap;
+    .cost {
+      width: 35%;
+      margin-right: 5%;
+      @include flex-column();
+      .cost-calc {
+        font-size: 1.1vw;
+        &__text {
+          font-family: UniNeueRegular;
+
+        }
+        &__text-bold {
+          padding: 0.3rem;
+          display: inline-block;
+          background-color: #fff;
+          font-family: 'UniNeueBold';
+          // font-weight: bold;
+
+        }
+      }
+      &__btn {
+        width: 20vw;
+        padding: 1vw;
+        @include flex-center();
+        border-bottom:solid 3px #e83e3e;
+        border-radius: 10px;
+        background: #fe7853;
+        background: -webkit-linear-gradient(to bottom, #fe7853, #fe5b55);
+        background: linear-gradient(to bottom, #fe7853, #fe5b55);
+
+        .btn__text{
+          width: 90%;
+          font-family: 'UniNeueBold';
+        }
+        &:active {
+          top: .1em;
+          left: .1em;
+          box-shadow: 0 0 0 60px rgba(0,0,0,.05) inset;
+        }
+      }
+    }
+    .cert {
+      width: 65%;
+      height: 100%;
+      @include flex-column();
+      align-items: center;
+      justify-content: center;
+
+      &__text {
+        margin-bottom: 1rem;
+        font-family: 'UniNeueBold';
+        font-size: 1.5vw;
+      }
+      .cert-slider {
+        width: 100%;
+        height: 100%;
+        @include flex-center();
+        .left-arrow {
+          width: 5%;
+          cursor: pointer;
+          &:hover{
+            transform: scale(1.1);
+          }
+
+        }
+        .slider-content {
+          width: 90%;
+          min-height: 150px;
+          margin: 0 3%;
+          position: relative;
+          overflow: hidden;
+
+          @include flex-center();
+          justify-content: space-between;
+          .slider-content__certificate{
+            width: 30%;
+            position: absolute;
+            transition: all 1.2s ease;
+            cursor: pointer;
+            &:hover{
+              transform: scale(1.1);
+            }
+          }
+        }
+        .right-arrow {
+          width: 5%;
+          cursor: pointer;
+          &:hover{
+            transform: scale(1.1);
+          }
+        }
+
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .main {
+    .company-advantages {
+      flex-direction: column;
+      margin-top: 30px;
+      width: 100%;
+      .first, .second, .third {
+        justify-content: flex-start;
+        width: 100%;
+        .years-work {
+          display: none;
+        }
+        .text {
+          .years {
+            display: inline-block;
+          }
+        }
+      }
+    }
+    .cost-cert {
+      flex-direction: column;
+      .cost {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        .cost-calc {
+          font-size: 18px;
+        }
+        .btn {
+          width: 70%;
+          margin: 10px 0;
+        }
+      }
+      .cert {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+        &__text {
+          font-size: 14px;
+        }
+        .slider-content {
+          min-height: 100px !important;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+
+  .main {
+    width: 100% !important;
+    .company-advantages {
+      margin-top: 30px;
+      .first,.second,.third {
+        .text {
+          font-size: 14px;
+        }
+      }
+    }
+    .cost-cert {
+      .cost {
+        margin-right: 0;
+        align-items: center;
+        justify-content: center;
+        .cost-calc {
+          &__text {
+            display: inline-block;
+          }
+          &__text-bold {
+            display: inline-block;
+          }
+        }
+      }
+      .cert {
+        width: 100%;
+        align-items: center;
+      }
+    }
+  }
+}

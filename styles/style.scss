@@ -1,0 +1,22 @@
+@import './null';
+@import './fonts-family.scss';
+@import './header.scss';
+@import './main.scss';
+@import './popup.scss';
+
+
+@mixin flex-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container{
+  max-width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 5% 8% 0 8%;
+  background-image: url('./../images/background.png');
+  background-size: 100% 100%
+}
